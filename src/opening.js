@@ -10,6 +10,10 @@ class GameScene extends Phaser.Scene {
 
     create() {
         this.cameras.main.setBackgroundColor("#904242");
+        this.load.spritesheet("sail", "assets/snailrunning.png",{
+            frameWidth: 50,
+			frameHeight: 50,
+        });
     }
 
     update() {
