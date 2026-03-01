@@ -6,18 +6,19 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
+       // this.load.spritesheet("snail", "/assets/snail.png",{ frameWidth: 65, frameHeight: 65, });
+       console.log("hi");
+       this.load.image("snail","assets/test.png");
     }
 
     create() {
         this.cameras.main.setBackgroundColor("#904242");
-        this.load.spritesheet("sail", "assets/snailrunning.png",{
-            frameWidth: 50,
-			frameHeight: 50,
-        });
+
+        // Correct method:
+        this.snail = this.physics.add.sprite(270, 50, "snail");
     }
 
-    update() {
-    }
+    update() {}
 }
 
 const config = {
@@ -25,8 +26,13 @@ const config = {
     width: 800,
     height: 600,
     parent: "game",
+    physics: {
+        default: "arcade",
+        arcade: {
+            debug: true
+        }
+    },
     scene: [GameScene]
 };
 
 new Phaser.Game(config);
-
